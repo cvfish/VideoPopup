@@ -11,4 +11,7 @@ libs/mapillary/OpenSfM/cmake_build
 .idea
 
 # python file
-pyc
+*.pyc
+
+#temp file
+\*~
