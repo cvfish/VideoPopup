@@ -34,26 +34,38 @@ Our code base already contains a modified version of OpenSfM, so do not need to 
 #2. Data
 
 One example sequence is available at [google drive](https://drive.google.com/open?id=0B8-9V4y1N7pxdzdCOXAweWk3OU0).
+
+```
+put data under root directory
 check data/Kitti/05_2f/runBroxMalik.sh for creating tracks file
+```
 
 #3. Examples
 
 After building the code and downloading the data, you are ready to try the provided examples.
 
 ###3.1 Motion Segmentation
-   video_popup/motion_segmentation/video_popup_motseg.py
-   video_popup/motion_segmentation/segmentation_check.py
+```
+video_popup/motion_segmentation/video_popup_motseg.py
+video_popup/motion_segmentation/segmentation_check.py
+```
 
 ###3.2 Depth Reconstruction from two consecutive frames
-   video_popup/depth_reconstruction/depth_reconstruction_test.py
+```
+video_popup/depth_reconstruction/depth_reconstruction_test.py
+```
 
 ###3.3 Piecewise Orthographic Reconstruction
-   video_popup/reconstruction/reconstruction_bird.py
-   video_popup/reconstruction/reconstruction_bird_check.py
+```
+video_popup/reconstruction/reconstruction_bird.py
+video_popup/reconstruction/reconstruction_bird_check.py
+```
 
 ###3.4 Piecewise Perspective Reconstruction
-   video_popup/reconstruction/reconstruction_tm_kitti.py
-   video_popup/reconstruction/reconstruction_tm_kitti_check.py
+```
+video_popup/reconstruction/reconstruction_tm_kitti.py
+video_popup/reconstruction/reconstruction_tm_kitti_check.py
+```
 
 #4. GUI Usage
 
