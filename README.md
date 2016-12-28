@@ -28,7 +28,8 @@ OpenSfM: see this [Dockerfile](https://github.com/paulinus/opensfm-docker-base/b
 
 Our code base already contains a modified version of OpenSfM, so do not need to install OpenSfM yourself.
 
-###1.2
+###1.2 Build VideoPopup
+
   To compile the system, do the following:
 
 ```
