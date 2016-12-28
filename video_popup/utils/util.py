@@ -317,8 +317,10 @@ def plot_traj2(W, Z, images, frame_step = 1, labels = 0, frame_time = 0,
         if(save_fig):
             folder, filename = os.path.split( images[frame] )
             if(save_name == ''):
-                save_name = filename
-            save_file = save_folder + '/' + save_name
+                temp = filename
+            else:
+                temp = save_name
+            save_file = save_folder + '/' + temp
             ensure_dir( save_file )
             fig.savefig( save_file, dpi=DPI, transparent=True)
 
