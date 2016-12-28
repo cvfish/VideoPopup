@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+trash=$1/trash/`date -u +"%Y-%m-%dT%H:%M:%SZ"`
+mkdir -p $trash
+rm -rf trash/*
+
+mv -vf $1/reconstruction*.json $trash
+mv -vf $1/exif $trash
+mv -vf $1/matches $trash
+mv -vf $1/sift $trash
+mv -vf $1/surf $trash
+mv -vf $1/akaze* $trash
+mv -vf $1/root* $trash
+mv -vf $1/hahog $trash
+mv -vf $1/camera_models.json $trash
+mv -vf $1/reference_lla.json $trash
+mv -vf $1/profile.log $trash
+mv -vf $1/navigation_graph.json $trash
+mv -vf $1/plot_inliers $trash
+mv -vf $1/depthmaps $trash
