@@ -1,0 +1,188 @@
+syntax = "proto2";
+
+package video_popup;
+
+message NeighborhoodPara {
+  // weight of velocity
+  optional float velocity_weight = 1 [default = 2000];
+  // the number of frames with maximum distance used to compute the final
+  // distance between two trajectores, -1 means using all possible frames
+  optional int32 top_frames_num = 2 [default = -1];
+  // neighborhood distance threshold between two trajectores
+  optional float dist_threshold = 3 [default = 10000];
+  // penalty distance for occluded frame
+  optional float occlusion_penalty = 4 [default = 500];
+  // maximum occluded frames allowed
+  optional int32 max_occlusion_frames = 5 [default = 45];
+  // weight of color
+  optional float color_weight = 6 [default = 2.5];
+  // number of neighbors we need
+  optional int32 neighbor_num = 7 [default = 10];
+}
+
+// we use Phil Torr's GRIC criteria for model selection
+message GRICModelSelectionPara {
+  // image noise level
+  optional float noise = 1 [default = 0.05];
+  // per point term cofficient
+  optional float lambda1 = 2 [default = 1];
+  // per model cofficient
+  optional float lamnda2 = 3 [default = 0.01];
+}
+
+message PerspFittingPara {
+  // fitting model to use
+  enum FHFitting {
+    // use fundmental matrix only
+    FONLY = 0;
+    // use homography only
+    HONLY = 1;
+    // fit both fundmental matrix and homography, and use model selection to find the best one
+    FANDH = 2;
+  }
+  optional FHFitting fh_fitting = 1 [default = FONLY];
+  // which fitting error to minimize inside the
+  enum FittingError {
+    ALGEBRA = 0;
+    SAMPSON = 1;
+    GEOMETRIC = 2;
+  }
+  optional FittingError fitting_error = 2 [default = ALGEBRA];
+
+}
+
+// to be done
+message OrthoFittingPara {
+}
+
+message SubspaceFittingPara {
+}
+
+message ModelFittingPara {
+  // specify a name for the model fitting method used
+  optional string name = 1; // model fitting name
+  // initial number of proposals to start with
+  optional int32 init_proposal_num = 2 [default = 200]; // the number of initial proposals
+  // mdl prior weight
+  optional float mdl = 3 [default = 4000];
+  // iterations to do
+  optional float iters_num = 4 [default = 5];
+
+  optional PerspFittingPara persp_fitting_para = 101;
+  optional OrthoFittingPara ortho_fitting_para = 102;
+  optional SubspaceFittingPara subspace_fitting_para = 103;
+  // which fitting_model to use, 0 or persp, 1 or Ortho, 2 for subspace
+  enum FittingModel{
+    PERSP = 0;
+    ORTHO = 1;
+    SUBSPACE = 2;
+  }
+  optional FittingModel fitting_model = 104 [default = PERSP];
+
+  // use model selection or not
+  optional bool use_gric_model_selection = 201 [default = false];
+  optional GRICModelSelectionPara gric_model_selection_para = 202;
+
+  // graph cut part
+  message GraphCutPara {
+    // model to use, ALPHA just uses pairwise terms,
+    // MULTI just uses overlap models,
+    // ALLGC uses both pairwise and overlap terms
+    enum Engine {
+      ALPHA = 0;
+      MULTI = 1;
+      ALLGC = 2;
+    }
+    optional Engine engine = 1 [default = ALLGC];
+    // overlapping cost, used in the overlapped models
+    optional float overlap_cost = 2 [default = 1.0];
+
+    optional float pointwise_breaking_lambda = 3 [default = 1.0];
+    optional float pointwise_outlier_lambda = 4 [default = 1.0];
+    optional float pairwise_breaking_ma = 5 [default = 100];
+    optional float pairwise_breaking_mb = 6 [default = 100];
+    optional float pairwise_breaking_mc = 7 [default = 30];
+    optional float pairwise_weight = 8 [default = 100];
+    optional float pairwise_sigma = 9 [default = 10];
+
+    // number of neighbors used for graphcut pairwise connection
+    optional int32 neighbors_num = 10 [default = 5];
+
+    // number of neighbors used for overlapping in graphcut
+    optional int32 overlap_neighbor_num = 11 [default = 5];
+
+    optional float lambda_weight = 12 [default = 1.0];
+  }
+
+  optional GraphCutPara graph_cut_para = 301;
+
+}
+
+message SegmentationPara{
+
+  optional string tracks_path = 1;
+  optional string images_path = 2;
+
+  // preprocessing, remove trajectores not visible in enough frames
+  optional int32 min_vis_frames = 3 [default = 5];
+
+  optional ModelFittingPara model_fitting_para = 101;
+
+}
+
+// parameters for orthographic reconstruction
+message OrthoReconstructionPara{
+
+  // parameters used for Marques Costeria method
+  optional float MC1 = 1 [default = 1e-3];
+  optional float MC2 = 2 [default = 20];
+  optional float MC3 = 3 [default = 10];
+
+  // which model to use, 0 for shape, 1 for depth mean and 2 for depth
+  optional int32 ba_model = 4 [default = 0];
+
+  // shape term weight
+  optional float alpha_s = 5 [default = 1e-2];
+  // depth diff weight
+  optional float alpha_z = 6 [default = 1e-2];
+  // smoothness prior
+  optional float alpha_prior = 7 [default = 1e+1];
+
+}
+
+// parameters for perspective reconstruction
+message PerspReconstructionPara{
+
+  // intrinsic parameters
+  optional float fx = 1 [default = 800];
+  optional float fy = 2 [default = 800];
+  optional float u0 = 3 [default = 640];
+  optional float v0 = 4 [default = 360];
+
+}
+
+message ReconstructionPara{
+
+  enum ReconstructionPipeline{
+    // do piecewise orthographic reconstruction, then stitch everything together
+    ORTHO_PIECEWISE_STITCHING = 0;
+    // do piecewise orthographic reconstruction, then optimize the whole mesh
+    ORTHO_PIECEWISE_GLOBAL = 1;
+    // initialize and optimize globally
+    ORTHO_GLOBAL = 2;
+    // do piecewise perspective reconstruction, then stitching
+    PERSP_PIECEWISE_STITCHING = 3;
+    // do piecewise perspective reconstruction, then optimize the whole mesh
+    PERSP_PIECEWISE_GLOBAL = 4;
+    // initialize and optimize globally
+    PERSP_GLOBAL = 5;
+  }
+
+  optional ReconstructionPipeline method = 1 [default = ORTHO_PIECEWISE_STITCHING];
+  optional OrthoReconstructionPara ortho_reconstruction_para = 2;
+  optional PerspReconstructionPara persp_reconstruction_para = 3;
+
+  // threshold on the minimal number of points in each part to do reconstruction
+  optional int32 thresh = 101 [default = 50];
+
+}

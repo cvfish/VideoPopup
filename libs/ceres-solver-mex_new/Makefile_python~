@@ -1,0 +1,15 @@
+swig -python cs_ba_python.i
+
+# g++ -O3 -shared -fPIC cs_ba_python.cpp cs_ba_python_wrap.c -w -o _cs_ba_python.so \
+#     -lceres -lcholmod -lccolamd -lcolamd -lamd -lcamd -lcxsparse \
+#     -lsuitesparseconfig -lgomp -lglog -lpthread \
+#     -I/usr/local/lib/python2.7/dist-packages/numpy/core/include \
+#     -I/usr/include/python2.7/ \
+#     -I/usr/local/include -L/usr/local/lib
+
+g++ -O3 -shared -fPIC cs_ba_python_wrap.c -w -o _cs_ba_python.so \
+    -lceres -lcholmod -lccolamd -lcolamd -lamd -lcamd -lcxsparse \
+    -lsuitesparseconfig -lgomp -lglog -lpthread \
+    -I/usr/local/lib/python2.7/dist-packages/numpy/core/include \
+    -I/usr/include/python2.7/ \
+    -I/usr/local/include -L/usr/local/lib

@@ -1,0 +1,9 @@
+swig -python test.i
+
+g++ -g -shared -fPIC test.cpp test_wrap.c -w -o _test.so \
+-I/usr/local/lib/python2.7/dist-packages/numpy/core/include \
+-I/usr/include/python2.7/
+
+# g++ -O3 -shared -fPIC test.cpp test_wrap.c -w -o _test.so \
+# -I/usr/local/lib/python2.7/dist-packages/numpy/core/include \
+# -I/usr/include/python2.7/

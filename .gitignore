@@ -1,0 +1,14 @@
+#files
+
+# data
+data
+
+# mapillary
+libs/mapillary/OpenSfM/build
+libs/mapillary/OpenSfM/cmake_build
+
+# pycharm file
+.idea
+
+# python file
+pyc
