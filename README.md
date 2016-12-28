@@ -45,7 +45,9 @@ check data/Kitti/05_2f/runBroxMalik.sh for creating tracks file
 After building the code and downloading the data, you are ready to try the provided examples.
 
 ###3.1 Motion Segmentation
-![bird-segmentation-result](https://github.com/cvfish/VideoPopup/blob/master/render/bird/image.jpg) ![two-men-segmentation-result](https://github.com/cvfish/VideoPopup/blob/master/render/two-men/image.png)
+<!-- ![bird-segmentation-result](https://github.com/cvfish/VideoPopup/blob/master/render/bird/image.jpg) -->
+<!-- ![two-men-segmentation-result](https://github.com/cvfish/VideoPopup/blob/master/render/two-men/image.png) -->
+![segmentation-result](https://github.com/cvfish/VideoPopup/blob/master/render/image.png)
 ```
 video_popup/motion_segmentation/video_popup_motseg.py
 video_popup/motion_segmentation/segmentation_check.py
@@ -57,14 +59,18 @@ video_popup/depth_reconstruction/depth_reconstruction_test.py
 ```
 
 ###3.3 Piecewise Orthographic Reconstruction
-![bird-sparse-result](https://github.com/cvfish/VideoPopup/blob/master/render/bird/sparse_render00.png) ![bird-dense-result](https://github.com/cvfish/VideoPopup/blob/master/render/bird/dense_render00.png)
+<!-- ![bird-sparse-result](https://github.com/cvfish/VideoPopup/blob/master/render/bird/sparse_render00.png) -->
+<!-- ![bird-dense-result](https://github.com/cvfish/VideoPopup/blob/master/render/bird/dense_render00.png) -->
+![bird-result](https://github.com/cvfish/VideoPopup/blob/master/render/bird.png)
 ```
 video_popup/reconstruction/reconstruction_bird.py
 video_popup/reconstruction/reconstruction_bird_check.py
 ```
 
 ###3.4 Piecewise Perspective Reconstruction
-![two-men-sparse-result](https://github.com/cvfish/VideoPopup/blob/master/render/two-men/sparse_render00.png) ![two-men-dense-result](https://github.com/cvfish/VideoPopup/blob/master/render/two-men/dense_render00.png)
+<!-- ![two-men-sparse-result](https://github.com/cvfish/VideoPopup/blob/master/render/two-men/sparse_render00.png) -->
+<!-- ![two-men-dense-result](https://github.com/cvfish/VideoPopup/blob/master/render/two-men/dense_render00.png) -->
+![bird-result](https://github.com/cvfish/VideoPopup/blob/master/render/two-men.png)
 ```
 video_popup/reconstruction/reconstruction_tm_kitti.py
 video_popup/reconstruction/reconstruction_tm_kitti_check.py
