@@ -39,8 +39,5 @@ elif(expr == 'bird7'):
     # plot the segmentation result
     # util.plot_nbor(seg['W'], seg['Z'], seg['s'], seg['images'], labels=seg['labels'],
     #                show_overlap=1, show_broken=1, plot_text=1, assignment=seg['assignment'])
-    # util.plot_traj2(seg['W'], seg['Z'], images, labels=labels, save_fig=0, frame_time = 0.1)
-
-    util.plot_traj2(seg['W'], seg['Z'], images, labels=labels, save_fig=1,
-                    save_folder='/home/cvfish/Work/code/bitbucket/video_popup/results/bird7_part', frame_time=0.1)
+    util.plot_traj2(seg['W'], seg['Z'], images, labels=labels, save_fig=0, frame_time = 0.1)
 

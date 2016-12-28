@@ -6,6 +6,11 @@ This is the implementation of the following ECCV2014 paper:
     Chris Russell*, Rui Yu*, Lourdes Agapito
     *Joint first authorship
 
+and the reconstruction part of:
+
+    Dense Monocular Depth Estimation in Complex Dynamic Scenes
+    Rene Ranftl, Vibhav Vineet, Qifeng Chen, Vladlen Koltun1
+
 For more information about this work, please visit the [project website](http://www0.cs.ucl.ac.uk/staff/R.Yu/video_popup/VideoPopup2.html).
 
 This github repository is maintained by Rui Yu (R.Yu@cs.ucl.ac.uk).
@@ -37,7 +42,7 @@ One example sequence is available at [google drive](https://drive.google.com/ope
 
 ```
 put data folder under root directory
-check data/Kitti/05_2f/runBroxMalik.sh for creating tracks file
+if you want to create new tracks file, check data/Kitti/05_2f/runBroxMalik.sh
 ```
 
 #3. Examples
@@ -54,6 +59,7 @@ video_popup/motion_segmentation/segmentation_check.py
 ```
 
 ###3.2 Depth Reconstruction from two consecutive frames
+![depth-result](https://github.com/cvfish/VideoPopup/blob/master/render/depth.png)
 ```
 video_popup/depth_reconstruction/depth_reconstruction_test.py
 ```
