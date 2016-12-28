@@ -45,7 +45,7 @@ check data/Kitti/05_2f/runBroxMalik.sh for creating tracks file
 After building the code and downloading the data, you are ready to try the provided examples.
 
 ###3.1 Motion Segmentation
-![bird-segmentation-result](https://github.com/cvfish/VideoPopup/blob/master/render/bird/image.jpg) ![two-men-segmentation-result](https://github.com/cvfish/VideoPopup/blob/master/render/bird/image.png)
+![bird-segmentation-result](https://github.com/cvfish/VideoPopup/blob/master/render/bird/image.jpg) ![two-men-segmentation-result](https://github.com/cvfish/VideoPopup/blob/master/render/two-men/image.png)
 ```
 video_popup/motion_segmentation/video_popup_motseg.py
 video_popup/motion_segmentation/segmentation_check.py
