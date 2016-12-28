@@ -22,12 +22,11 @@ VideoPopup has been tested in Ubuntu 14.04 only.
 
 ###1.1 Requirements
 
-Vispy
-We use [vispy](https://github.com/vispy/vispy) for 3D visualization
+Vispy: we use [vispy](https://github.com/vispy/vispy) for 3D visualization
 
-OpenSfM
-See this [Dockerfile](https://github.com/paulinus/opensfm-docker-base/blob/master/Dockerfile) for the commands to install all dependencies for OpenSfM.
-Our code base already contains a modified version of OpenSfM, so do not need to install OpenSfM yourself
+OpenSfM: see this [Dockerfile](https://github.com/paulinus/opensfm-docker-base/blob/master/Dockerfile) for the commands to install all dependencies for OpenSfM.
+
+Our code base already contains a modified version of OpenSfM, so do not need to install OpenSfM yourself.
 
 ###1.2
   To compile the system, do the following:
