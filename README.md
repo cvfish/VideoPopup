@@ -36,7 +36,7 @@ Our code base already contains a modified version of OpenSfM, so do not need to 
 One example sequence is available at [google drive](https://drive.google.com/open?id=0B8-9V4y1N7pxdzdCOXAweWk3OU0).
 
 ```
-put data under root directory
+put data folder under root directory
 check data/Kitti/05_2f/runBroxMalik.sh for creating tracks file
 ```
 
@@ -45,6 +45,7 @@ check data/Kitti/05_2f/runBroxMalik.sh for creating tracks file
 After building the code and downloading the data, you are ready to try the provided examples.
 
 ###3.1 Motion Segmentation
+![two-men-segmentation-result](url-to-image)
 ```
 video_popup/motion_segmentation/video_popup_motseg.py
 video_popup/motion_segmentation/segmentation_check.py
