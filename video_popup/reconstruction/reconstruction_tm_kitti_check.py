@@ -1,15 +1,12 @@
 """
-create visualization app for piecewise orthographic reconstruction results,
-where we could manually tune the flipping and translation along depth direction
+Here we have three different visualizations for checking the result
 
-Basically, this is very similar to the perspective reconstruction visualization app.
-Maybe it is better to write a single app which could handle both orthographic and perspective
-reconstruction results, but I decide to write for each separately
+show = 0: showing point cloud
+show = 1: showing depth maps created by interpolating sparse point clouds
+show = 2: use piecewise perspective reconstruction visualization app
 
-To handle the ambiguity we have in orthographic cases,
-we have per object flipping ,per frame flipping and also per frame depth ambiguity
-
-we fix the camera, and pick fixed intrinsic camera parameters just for visualization
+In piecewise perspective reconstruction visualization app,  we could
+where we could manually tune the scale/depth for each piece.
 
 """
 
