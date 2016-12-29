@@ -9,7 +9,7 @@ This is the implementation of the following ECCV2014 paper:
 and the reconstruction part of:
 
     Dense Monocular Depth Estimation in Complex Dynamic Scenes
-    Rene Ranftl, Vibhav Vineet, Qifeng Chen, Vladlen Koltun1
+    Rene Ranftl, Vibhav Vineet, Qifeng Chen, Vladlen Koltun
 
 For more information about this work, please visit the [project website](http://www0.cs.ucl.ac.uk/staff/R.Yu/video_popup/VideoPopup2.html).
 
@@ -23,6 +23,8 @@ VideoPopup has been tested in Ubuntu 14.04 only.
 ###1.1 Requirements
 
 Vispy: we use [vispy](https://github.com/vispy/vispy) for 3D visualization
+
+[CVXPY](https://github.com/cvxgrp/cvxpy/): if you want to try depth reconstruction
 
 OpenSfM: see this [Dockerfile](https://github.com/paulinus/opensfm-docker-base/blob/master/Dockerfile) for the commands to install all dependencies for OpenSfM.
 
