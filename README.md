@@ -26,7 +26,7 @@ Vispy: we use [vispy](https://github.com/vispy/vispy) for 3D visualization
 
 OpenSfM: see this [Dockerfile](https://github.com/paulinus/opensfm-docker-base/blob/master/Dockerfile) for the commands to install all dependencies for OpenSfM.
 
-Our code base already contains a modified version of OpenSfM, so do not need to install OpenSfM yourself.
+Our code base already contains a modified version of OpenSfM, so you do not need to install OpenSfM yourself.
 
 ###1.2 Build VideoPopup
 
